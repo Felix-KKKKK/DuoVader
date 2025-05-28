@@ -1,0 +1,87 @@
+/*
+ * Felix Yi
+ * May 28th
+ * The abstract class of the item, extended by the spaceship, bullet and the alien
+ */
+package duovader;
+
+import java.awt.Color;
+import java.text.DecimalFormat;
+abstract public class Item {
+    //initialize the x, y, isActive and speed that the three extended classes will have in common
+    //set the variables as protected so that they can be accessed by the extended classes
+    protected int x;
+    protected int y;
+    protected boolean isActive;
+    protected int speed;
+    
+    /**
+     * Primary constructor, give a basic value to the variables
+     */
+    public Item(){
+        x = 0;
+        y = 0;
+        isActive = false;
+        speed = 0;
+    }
+    
+    /**
+     * Secondary constructor, give value to the variables
+     * @param x - the x position of the item
+     * @param y - the y position of the item
+     * @param isActive - check whether the item is active or not
+     * @param speed - the speed of the item
+     */
+    public Item(int x, int y, boolean isActive, int speed){
+        this();
+        this.x = x;
+        this.y = y;
+        this.isActive = isActive;
+        this.speed = speed;
+    }
+    
+    /**
+     * an accessor method to check the x coordinate of the item
+     * @return - the x position of the item
+     */
+    public int getX(){
+        return x;
+    }
+    
+    /**
+     * an accessor method to check the y coordinate of the item
+     * @return - the y position of the item
+     */
+    public int getY(){
+        return y;
+    }
+    
+    /**
+     * an accessor method to check whether it is active or not 
+     * @return - the isActive variable
+     */
+    public boolean getActive(){
+        return isActive;
+    }
+    
+    /**
+     * a mutator method to reset the active to another 
+     * @param isActive - whether the item is active or not
+     */
+    public void setActive(boolean isActive){
+        this.isActive = isActive;
+    }
+    
+    /**
+     * the clone method to make the same object as the target
+     * @return - the new object
+     */
+    abstract public Object clone();
+    
+    /**
+     * check whether the two objects are the same or not
+     * @param other - the another object
+     * @return - true or false, whether they are the same or not
+     */
+    abstract public boolean equals(Object other);
+}
