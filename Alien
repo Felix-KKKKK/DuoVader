@@ -1,0 +1,71 @@
+package duovader;
+
+/**
+ * Alien class
+ */
+public class Alien extends Item {
+
+    private int width;
+    private int height
+    private int speedX;
+    private int speedY;
+    private int life;
+    private boolean isActive;
+
+    public Alien() {
+        this.width = 0;
+        this.height = 0;
+        y = -40;
+        x = 0;
+
+        life = 1;
+        isActive = true;
+        speedX = 0;
+        speed = 0;
+        speedY = 0;
+    }
+
+    public Alien(int startX, int speedX, int speedY) {
+        super();
+        this.width = width;
+        this.height = height;
+        this.speedX = speedX;
+        this.speedY = speedY;
+        this.life = life;
+        this.isActive = isActive;
+    }
+
+    /**
+     * move left movement method
+     */
+    public void move() { //800 by 600
+        if (isActive) { // the alien should move left and right
+            speedX++;
+        }
+    }
+
+    public void setDead(){
+     isActive = false;
+            life = 0;
+        }    
+    
+    
+
+    public void hit() {
+
+        if (life <= 1) {
+            setDead();
+        } else {
+            life--;
+        }
+    }
+
+    public Object clone() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean equals(Object other) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+}
