@@ -4,6 +4,7 @@ package duovader;
  * Alien class
  */
 public class Alien extends Item {
+// private attributes
 
     private int width;
     private int height
@@ -12,21 +13,31 @@ public class Alien extends Item {
     private int life;
     private boolean isActive;
 
+    /**
+     * Alien primary constructor
+     */
     public Alien() {
-        this.width = 0;
-        this.height = 0;
-        y = -40;
-        x = 0;
-
+        //initialize the privae attributes
+        width = 0;
+        height = 0;
         life = 1;
         isActive = true;
         speedX = 0;
-        speed = 0;
         speedY = 0;
+        //initialize the inherited 
+        y = -40;
+        x = 0;
+        speed = 0;
     }
 
+    /**
+     * second constructor
+     * @param startX
+     * @param speedX
+     * @param speedY 
+     */
     public Alien(int startX, int speedX, int speedY) {
-        super();
+        super(); //chain to first constructor
         this.width = width;
         this.height = height;
         this.speedX = speedX;
@@ -44,28 +55,120 @@ public class Alien extends Item {
         }
     }
 
-    public void setDead(){
-     isActive = false;
-            life = 0;
-        }    
-    
-    
+    /**
+     * set dead method
+     */
+    public void setDead() {
+        isActive = false; // not active anymore
+        life = 0; // no lives left
+    }
 
+    /**
+     * hit method
+     */
     public void hit() {
 
-        if (life <= 1) {
-            setDead();
-        } else {
+        if (life <= 1) { //if the life is less or equal to 1
+            setDead(); //set dead
+        } else { //else minus a life
             life--;
         }
     }
 
-    public Object clone() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    /**
+     * clone method
+     * @return 
+     */
+    public Alien clone() {
+       Alien a = new Alien(startX, speedX, speedY);
+       return a;
     }
 
-    public boolean equals(Object other) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    /**
+     * equals method
+     * @param other
+     * @return 
+     */
+    public boolean equals(Alien other) {
+        if(width == other.width&& height == other.height
+                &&life == other.life&&speedX == other.speedX&&speedY = other.speedY){ // if both alien object has the same values
+            return true; //return true, they are equal
+        }else{
+            return false; //else not the same
+        }
     }
+
+    /**
+     * getter for width
+     * @return 
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * setter for width
+     * @param width 
+     */
+    public void setWidth(int width) {
+        this.width = width; //sets to input value
+    }
+
+    /**
+     * getter for height
+     * @return 
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    /**
+     * setter for height
+     * @param height 
+     */
+    public void setHeight(int height) {
+        this.height = height; //height to user value
+    }
+
+    /**
+     * getter for x speed
+     * @return 
+     */
+    public int getSpeedX() {
+        return speedX;
+    }
+
+    /**
+     * getter for y speed
+     * @return 
+     */
+    public int getSpeedY() {
+        return speedY;
+    }
+
+    /**
+     * setter for y speed
+     * @param speedY 
+     */
+    public void setSpeedY(int speedY) {
+        this.speedY = speedY; //set to user value
+    }
+
+    /**
+     * getter for lives
+     * @return 
+     */
+    public int getLife() {
+        return life;
+    }
+
+    /**
+     * getter for isActive
+     * @return 
+     */
+    public boolean getIsActive() {
+        return isActive;
+    }
+
 
 }
